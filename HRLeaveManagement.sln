@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A86B7CA1-7895-40BF-A8CF-5DE6B78F16E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FFB5CEC8-72CC-4035-9D61-303120373036}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{7F1407CA-0B5B-4013-9A84-1942276BFCC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5022FB7A-FC11-41EA-B481-B4794C49D3F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D1318403-7B4A-46D9-B911-1A380401ABB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{0BC81CBB-0BE5-41B5-90A2-B4A97711AE81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRLeaveManagement.Domain", "HRLeaveManagement.Domain\HRLeaveManagement.Domain.csproj", "{A5580051-BFBF-4736-8A55-FE236046DA23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5580051-BFBF-4736-8A55-FE236046DA23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5580051-BFBF-4736-8A55-FE236046DA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5580051-BFBF-4736-8A55-FE236046DA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5580051-BFBF-4736-8A55-FE236046DA23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7F1407CA-0B5B-4013-9A84-1942276BFCC7} = {A86B7CA1-7895-40BF-A8CF-5DE6B78F16E7}
+		{5022FB7A-FC11-41EA-B481-B4794C49D3F8} = {A86B7CA1-7895-40BF-A8CF-5DE6B78F16E7}
+		{D1318403-7B4A-46D9-B911-1A380401ABB4} = {A86B7CA1-7895-40BF-A8CF-5DE6B78F16E7}
+		{0BC81CBB-0BE5-41B5-90A2-B4A97711AE81} = {A86B7CA1-7895-40BF-A8CF-5DE6B78F16E7}
+		{A5580051-BFBF-4736-8A55-FE236046DA23} = {5022FB7A-FC11-41EA-B481-B4794C49D3F8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F623F1B-EC2C-4153-926A-6E446CDB4185}
+	EndGlobalSection
+EndGlobal
