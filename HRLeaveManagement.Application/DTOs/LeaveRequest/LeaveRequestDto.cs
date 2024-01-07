@@ -1,4 +1,5 @@
 ﻿using HRLeaveManagement.Application.DTOs.common;
+using HRLeaveManagement.Application.DTOs.Leavetype;
 using HRLeaveManagement.Domain;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace HRLeaveManagement.Application.DTOs.LeaveRequest
 
         public DateTime DateRequested { get; set; }
         public string? RequestComments { get; set; }
+        public DateTime? DateActioned { get; set; }
 
         public bool? Approved { get; set; }
         public bool Cancelled { get; set; }

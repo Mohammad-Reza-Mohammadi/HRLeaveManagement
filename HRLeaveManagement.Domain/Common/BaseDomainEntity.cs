@@ -2,7 +2,7 @@
 {
     public abstract class BaseDomainEntity
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public DateTime DateCreated { get; set; }
         public string CreateBy { get; set; }
         public string LastModifiedDate { get; set; }

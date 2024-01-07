@@ -1,4 +1,4 @@
-﻿using HRLeaveManagement.Application.DTOs;
+﻿using HRLeaveManagement.Application.DTOs.Leavetype;
 using MediatR;
 using System;
 using System.Collections.Generic;
