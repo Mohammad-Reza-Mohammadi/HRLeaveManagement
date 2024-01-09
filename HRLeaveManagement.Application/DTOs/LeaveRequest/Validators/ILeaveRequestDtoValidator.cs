@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace HRLeaveManagement.Application.DTOs.LeaveRequest.Validators
 {
-    public class CreateLeaveReaquestDtoValidators : AbstractValidator<CreateLeaveRequestDto>
+    public class ILeaveRequestDtoValidator : AbstractValidator<LeaveRequestDto>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
 
-        public CreateLeaveReaquestDtoValidators(ILeaveTypeRepository leaveTypeRepository)
+        public ILeaveRequestDtoValidator(ILeaveTypeRepository leaveTypeRepository)
         {
+            _leaveTypeRepository = leaveTypeRepository;
+
             RuleFor(p => p.StartDate)
                 .LessThan(p => p.EndDate).WithMessage("{PropertyName} must be befor {ComparisonValue");
 
@@ -25,10 +27,8 @@ namespace HRLeaveManagement.Application.DTOs.LeaveRequest.Validators
                 .MustAsync(async (id, token) =>
                 {
                     var leaveTypeExists = await _leaveTypeRepository.Exists(id);
-                    return !leaveTypeExists; 
+                    return !leaveTypeExists;
                 }).WithMessage("{PropertyName} does not exist");
-            _leaveTypeRepository = leaveTypeRepository;
         }
     }
 }
-
