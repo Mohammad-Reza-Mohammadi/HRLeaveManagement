@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using HRLeaveManagement.Application.Persistence.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,12 @@ namespace HRLeaveManagement.Application.DTOs.LeaveAllocation.Validators
 {
     public class CreateLeaveAllocationDtoValidator : AbstractValidator<CreateLeaveAllocationDto>
     {
-        public CreateLeaveAllocationDtoValidator()
+        private readonly ILeaveTypeRepository _leaveTypeRepository;
+
+        public CreateLeaveAllocationDtoValidator(ILeaveTypeRepository leaveTypeRepository)
         {
-            //RuleFor(p => p.NumberOfdays)
-            //    .
+            _leaveTypeRepository = leaveTypeRepository;
+            Include(new ILeaveAllocationDtoValidator(_leaveTypeRepository));
         }
     }
 }

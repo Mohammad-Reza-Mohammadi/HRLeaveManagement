@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HRLeaveManagement.Application.DTOs.LeaveRequest.Validators
 {
-    public class ILeaveRequestDtoValidator : AbstractValidator<LeaveRequestDto>
+    public class ILeaveRequestDtoValidator : AbstractValidator<ILeaveRequstDto>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
 
