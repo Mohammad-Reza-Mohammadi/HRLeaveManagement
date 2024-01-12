@@ -28,15 +28,15 @@ namespace HRLeaveManagement.Application.Features.LeaveAllocations.Handlers.Comma
 
         public async Task<Unit> Handle(UpdateLeaveAllocationCommand request, CancellationToken cancellationToken)
         {
-            //    var validator = new UpdateLeaveAllocationDtoValidator(_leaveTypeRepository);
-            //    var validationResult = await validator.ValidateAsync(request.LeaveAllocationDto);
+            var validator = new UpdateLeaveAllocationDtoValidator(_leaveTypeRepository);
+            var validationResult = await validator.ValidateAsync(request.UpdateLeaveAllocationDto);
 
-            //    if (validationResult.IsValid == false)
-            //        throw new ValidationEception(validationResult);
+            if (validationResult.IsValid == false)
+                throw new ValidationEception(validationResult);
 
-            var leaveAllocation = await _leaveAllocationRepository.GetAsync(request.LeaveAllocationDto.Id);
+            var leaveAllocation = await _leaveAllocationRepository.GetAsync(request.UpdateLeaveAllocationDto.Id);
 
-            _mapper.Map(request.LeaveAllocationDto, leaveAllocation);
+            _mapper.Map(request.UpdateLeaveAllocationDto, leaveAllocation);
 
             await _leaveAllocationRepository.UpdateAsync(leaveAllocation);
 
