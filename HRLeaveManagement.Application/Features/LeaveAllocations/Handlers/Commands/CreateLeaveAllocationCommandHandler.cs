@@ -36,7 +36,7 @@ namespace HRLeaveManagement.Application.Features.LeaveAllocations.Handlers.Comma
             if (validationResult.IsValid == false)
                 throw new ValidationEception(validationResult);
 
-            var leaveAllocation = _mapper.Map<LeaveAllocation>(request.CreateLeaveAllocationDto);
+            var leaveAllocation = _mapper.Map<LeaveAllocation>(request.CreateLeaveAllocationDto);   
             leaveAllocation = await _leaveAllocationRepository.AddAsync(leaveAllocation);
             return leaveAllocation.Id;
         }
