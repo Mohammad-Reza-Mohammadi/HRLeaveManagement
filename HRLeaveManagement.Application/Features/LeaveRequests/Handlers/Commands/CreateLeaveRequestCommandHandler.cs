@@ -2,10 +2,12 @@
 using HRLeaveManagement.Application.DTOs.LeaveRequest.Validators;
 using HRLeaveManagement.Application.Exeptions;
 using HRLeaveManagement.Application.Features.LeaveRequests.Requests.Commands;
-using HRLeaveManagement.Application.Persistence.Contracts;
+using HRLeaveManagement.Application.Contracts.Persistence;
 using HRLeaveManagement.Application.Responses;
 using HRLeaveManagement.Domain;
 using MediatR;
+using HRLeaveManagement.Application.Contracts.Infrastructure;
+using HRLeaveManagement.Application.Models;
 
 namespace HRLeaveManagement.Application.Features.LeaveRequests.Handlers.Commands
 {
@@ -13,14 +15,17 @@ namespace HRLeaveManagement.Application.Features.LeaveRequests.Handlers.Commands
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly ILeaveTypeRepository _leaveTypeRepository;
+        private readonly IEmailSender _emailSender;
         private readonly IMapper _mapper;
 
         public CreateLeaveRequestCommandHandler(ILeaveRequestRepository leaveRequestRepository,
             ILeaveTypeRepository leaveTypeRepository,
+            IEmailSender emailSender,
             IMapper mapper)
         {
             _leaveRequestRepository = leaveRequestRepository;
             _leaveTypeRepository = leaveTypeRepository;
+            _emailSender = emailSender;
             _mapper = mapper;
         }
 
@@ -45,6 +50,21 @@ namespace HRLeaveManagement.Application.Features.LeaveRequests.Handlers.Commands
             respose.Success = false;
             respose.Message = "Creation Successful";
             respose.Id = leaveRequest.Id;
+
+            var email = new Email
+            {
+                To = "mrmprogram26379@gmail.com",
+                Body =$"Your leave request for {request.CreateLeaveRequestDto.StartDate} to {request.CreateLeaveRequestDto.EndDate} has been submitted successsfully.",
+                Subject = "Leave Request Submited"
+            };
+            try
+            {
+                await _emailSender.SendEmail(email);
+            }
+            catch (Exception ex)
+            {
+                ////log or handle error , but don't throw ...
+            }
 
             return respose;
         }

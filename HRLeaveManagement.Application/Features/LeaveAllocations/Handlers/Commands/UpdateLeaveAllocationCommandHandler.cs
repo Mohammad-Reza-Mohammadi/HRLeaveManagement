@@ -3,7 +3,7 @@ using HRLeaveManagement.Application.DTOs.LeaveAllocation.Validators;
 using HRLeaveManagement.Application.DTOs.Leavetype.Validators;
 using HRLeaveManagement.Application.Exeptions;
 using HRLeaveManagement.Application.Features.LeaveAllocations.Requests.Commands;
-using HRLeaveManagement.Application.Persistence.Contracts;
+using HRLeaveManagement.Application.Contracts.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;
