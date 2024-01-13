@@ -7,6 +7,6 @@ namespace HRLeaveManagement.Application.Persistence.Contracts
         Task<LeaveRequest> GetLeaveRequestwithDetailsAsync(int id);
 
         Task<List<LeaveRequest>> GetLeaveRequestwithDetailsAsync();
-        Task ChangeApprovalStatus(LeaveRequest request, bool? ApprovalStatus);
+        Task ChangeApprovalStatus(LeaveRequest leaveRequest, bool? ApprovalStatus);
     }
 }
