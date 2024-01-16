@@ -32,20 +32,20 @@ namespace HRLeaveManagement.Infrastructure.Mail
                 {
                     var credential = new NetworkCredential()
                     {
-                        UserName = "",
-                        Password = ""
+                        UserName = _emailSettings.EmilNetworkCredential.UserName,
+                        Password = _emailSettings.EmilNetworkCredential.Password,
                     };
                     client.Credentials = credential;
-                    client.Host = "";
-                    client.Port = ;
-                    client.EnableSsl = true;
+                    client.Host = _emailSettings.Host;
+                    client.Port = _emailSettings.Port;
+                    client.EnableSsl = _emailSettings.EnableSSl;
                     using (var message = new MailMessage())
                     {
                         message.To.Add(new MailAddress(email.To));
-                        message.From = new MailAddress("");
+                        message.From = new MailAddress(email.From);
                         message.Subject = email.Subject;
                         message.Body = email.Body;
-                        message.IsBodyHtml = ;
+                        message.IsBodyHtml = email.IsBodyHtml;
                         client.Send(message);
                     }
                     await Task.CompletedTask;

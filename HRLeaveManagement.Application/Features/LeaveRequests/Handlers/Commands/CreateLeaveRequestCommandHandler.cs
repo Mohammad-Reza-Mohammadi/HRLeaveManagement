@@ -53,13 +53,15 @@ namespace HRLeaveManagement.Application.Features.LeaveRequests.Handlers.Commands
 
             var email = new Email
             {
-                To = "mrmprogram26379@gmail.com",
+                From = "mrmprogram2637@gmail.com",
+                To = "qolam2212@gmail.com",
                 Body =$"Your leave request for {request.CreateLeaveRequestDto.StartDate} to {request.CreateLeaveRequestDto.EndDate} has been submitted successsfully.",
-                Subject = "Leave Request Submited"
+                Subject = "Leave Request Submited",
+                IsBodyHtml = true,
             };
             try
             {
-                await _emailSender.SendEmail(email);
+                await _emailSender.GetSendEmail(email);
             }
             catch (Exception ex)
             {

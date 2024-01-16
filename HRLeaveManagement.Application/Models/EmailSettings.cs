@@ -9,7 +9,7 @@ namespace HRLeaveManagement.Application.Models
 {
     public class EmailSettings
     {
-        public EmilNetworkCredential MyProperty { get; set; }
+        public EmilNetworkCredential EmilNetworkCredential { get; set; }
         public string Host { get; set; }
         public int Port { get; set; }
         public bool EnableSSl { get; set; }
