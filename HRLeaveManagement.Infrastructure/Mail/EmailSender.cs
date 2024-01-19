@@ -1,17 +1,8 @@
 ﻿using HRLeaveManagement.Application.Contracts.Infrastructure;
 using HRLeaveManagement.Application.Models;
 using Microsoft.Extensions.Options;
-using SendGrid;
-using SendGrid.Helpers.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Schema;
 
 namespace HRLeaveManagement.Infrastructure.Mail
 {
