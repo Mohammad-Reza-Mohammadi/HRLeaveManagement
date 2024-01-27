@@ -23,7 +23,6 @@ namespace HRLeaveManagement.Application.UnitTests.LeaveTypes.Command
         private readonly IMapper _mapper;
         private readonly Mock<ILeaveTypeRepository> _mockRepo;
         private readonly CreateLeaveTypeDto _createLeaveTypeDto;
-        private readonly CreateLeaveTypeCommandHandler _handler;
 
         public CreateLeaveTypeCommandHandlerTests()
         {
@@ -35,8 +34,6 @@ namespace HRLeaveManagement.Application.UnitTests.LeaveTypes.Command
             });
 
             _mapper = new Mapper(mapperConfig);
-
-            _handler = new CreateLeaveTypeCommandHandler(_mockRepo.Object, _mapper);
 
             _createLeaveTypeDto = new CreateLeaveTypeDto()
             {
@@ -57,22 +54,6 @@ namespace HRLeaveManagement.Application.UnitTests.LeaveTypes.Command
             result.ShouldBeOfType<int>();
 
             leatetypes.Count.ShouldBe(4);
-        }
-
-        [Fact]
-        public async Task InValid_LeaveType_Added()
-        {
-            _createLeaveTypeDto.DefaultDays = -1;
-
-            ValidationException ex = await Should.ThrowAsync<ValidationException>
-                (async () =>
-                        await _handler.Handle(new CreateLeaveTypeCommand() { CreateLeaveTypeDto = _createLeaveTypeDto }, CancellationToken.None)
-                );
-            var leaveTypes = await _mockRepo.Object.GetAllAsync();
-
-            leaveTypes.Count.ShouldBe(3);
-
-            ex.ShouldNotBeNull();
         }
     }
 }

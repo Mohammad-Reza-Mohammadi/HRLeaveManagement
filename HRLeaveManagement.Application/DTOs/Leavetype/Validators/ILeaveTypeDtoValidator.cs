@@ -14,7 +14,7 @@ namespace HRLeaveManagement.Application.DTOs.Leavetype.Validators
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
-                .MinimumLength(50).WithMessage("{PropertyName} must not exceed {ComparisonValue} characters.");
+                .MinimumLength(5).WithMessage("{PropertyName} must not exceed {ComparisonValue} characters.");
 
             RuleFor(p => p.DefaultDays)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
